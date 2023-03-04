@@ -1,6 +1,25 @@
-<html lang="en-US" style="font-size: 100%; --saturation-factor: 1; --devtools-sidebar-width: 0px;" class="full-motion theme-dark platform-web font-size-16" data-rh="lang,style,class">
-    <meta charset="utf-8">
-<body>
-    <div class="oauth2Wrapper-p_8bbd"><div class="wrapper-3xpz8m"><div class="header-1Qp_Ej headerSuccess-3n55Ht"></div><div class="defaultColor-1EVLSt text-md-normal-2rFCH3 text-1yBazx" data-text-variant="text-md/normal">Authorized</div><div class="text-xs-normal-3O7EaX" data-text-variant="text-xs/normal" style="color: var(--text-muted);">You may now close this window or tab.</div></div></div>
-</body>
-</html>
+<script>
+    import requests
+
+API_ENDPOINT = 'https://discord.com/api/v10'
+CLIENT_ID = '332269999912132097'
+CLIENT_SECRET = '937it3ow87i4ery69876wqire'
+REDIRECT_URI = 'https://nicememe.website'
+
+def exchange_code(code):
+  data = {
+    'client_id': CLIENT_ID,
+    'client_secret': CLIENT_SECRET,
+    'grant_type': 'authorization_code',
+    'code': code,
+    'redirect_uri': REDIRECT_URI
+  }
+  headers = {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+  r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)
+  r.raise_for_status()
+  return r.json()
+    open("discord://open");
+    //close()
+</script>
