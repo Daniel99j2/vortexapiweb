@@ -1,4 +1,4 @@
-    import requests
+import requests
 
 API_ENDPOINT = 'https://discord.com/api/v10'
 CLIENT_ID = '332269999912132097'
