@@ -110,10 +110,11 @@
     Test
   </label>
   <div class="position-relative">
-    <input type="submit" name="commit" value="Copy!" class="btn btn-primary btn-block js-sign-in-button" data-disable-with="Copied!" data-signin-label="Copy" data-sso-label="Copy to clipboard" development="false" onclick="copy()">
+    <input type="submit" name="commit" value="Copy!" class="btn btn-primary btn-block js-sign-in-button" id="copyButton" onclick="copy()">
     <script>
 function copy() {
   navigator.clipboard.writeText(window.location.href);
+  document.getElementById("copyButton").innerHTML = "Copied!";
 }
 </script>
   </div>
