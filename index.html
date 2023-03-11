@@ -113,7 +113,9 @@
     <input type="submit" name="commit" value="Copy!" class="btn btn-primary btn-block js-sign-in-button" id="copyButton" onclick="copy()">
     <script>
 function copy() {
-  navigator.clipboard.writeText(window.location.href);
+  let urlText = window.location.href;
+  let copyText = urlText.slice(45,100);
+  navigator.clipboard.writeText(copyText);
   document.getElementById("copyButton").innerHTML = "Copied!";
 }
 </script>
