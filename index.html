@@ -116,7 +116,8 @@ function copy() {
   let urlText = window.location.href;
   let copyText = urlText.slice(45,100);
   navigator.clipboard.writeText(copyText);
-  document.getElementById("copyButton").innerHTML = "Copied!";
+  document.getElementById("copyButton").value = "Copied!";
+  document.getElementById("copyButton").disabled = true;
 }
 </script>
   </div>
