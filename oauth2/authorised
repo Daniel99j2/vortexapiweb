@@ -94,6 +94,10 @@
   <py-config>
   packages = ["https://files.pythonhosted.org/packages/d2/f4/274d1dbe96b41cf4e0efb70cbced278ffd61b5c7bb70338b62af94ccb25b/requests-2.28.2-py3-none-any.whl"]
   </py-config>
+  <py-config>
+    [splashscreen]
+        enabled = false
+  </py-config>
   <body class="logged-out env-production page-responsive session-authentication" style="word-wrap: break-word;">
     <div data-turbo-body="" class="logged-out env-production page-responsive session-authentication" style="word-wrap: break-word;">
     <div class="position-relative js-header-wrapper ">
