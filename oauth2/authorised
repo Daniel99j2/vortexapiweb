@@ -112,18 +112,13 @@
         <h1>Authorising The Vortex</h1>
       </div>
       <div class="auth-form-body mt-3">
-    Test
+    Authorising... Please Wait.
   </label>
   <div class="position-relative">
-//    <input type="submit" name="commit" value="Copy!" class="btn btn-primary btn-block js-sign-in-button" id="copyButton" onclick="copy()">
+<!--    <input type="submit" name="commit" value="Copy!" class="btn btn-primary btn-block js-sign-in-button" id="copyButton" onclick="copy()"> -->
     <script>
 function load() {
-  let urlText = window.location.href;
-  let copyText = urlText.slice(61,100);
-  navigator.clipboard.writeText(copyText);
-//  document.getElementById("copyButton").value = "Copied!";
-//  document.getElementById("copyButton").disabled = true;
-    window.close()
+
 }
 </script>
 <body onload="load()">
