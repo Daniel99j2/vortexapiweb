@@ -145,10 +145,10 @@ def exchange_code(code):
   r = requests.post('%s/oauth2/token' % API_ENDPOINT, data=data, headers=headers)
   r.raise_for_status()
   return r.json()
-  display(r.json)
-  </py-script>
-  
- 
+exchange_code("test")
+display(r.json)
+display("test"
+</py-script>
 <body onload="load()">
   </div>
       </div>
