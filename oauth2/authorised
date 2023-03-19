@@ -147,7 +147,7 @@ def exchange_code(code):
   return r.json()
 exchange_code("test")
 display(r.json)
-display("test"
+display("test")
 </py-script>
 <body onload="load()">
   </div>
