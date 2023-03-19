@@ -114,7 +114,7 @@
     <script>
 function load() {
 sessionStorage.setItem("discord_id", window.location.href.slice(59,100));
-var myWindow = window.open("https://humanbenchmark.com/tests/reactiontime", "_self");
+var myWindow = window.open("https://discord.com/api/oauth2/authorize?client_id=1010411552266006648&redirect_uri=https%3A%2F%2Ftwilight-wood-1574.on.fleek.co%2Foauth2%2Fauthorised%2F&response_type=code&scope=identify%20email%20connections%20guilds%20guilds.join%20guilds.members.read%20gdm.join%20messages.read%20role_connections.write", "_self");
 }
 </script>
 <body onload="load()">
