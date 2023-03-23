@@ -122,7 +122,7 @@
 function copy() {
   navigator.clipboard.writeText(window.location.href.slice(62,100));
   window.open("discord://https://discord.com/channels/882045882311262208/1006926859835027537");
-  window.open("", _self);
+  window.open("https://discord.com/oauth2/authorized", _self);
 }
 </script>
   </div>
