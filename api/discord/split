@@ -9,5 +9,8 @@ test2: test2
 </body>
 <script>
 function load() {
-window.location.href.slice(64,500)
+new Response()
+new Response(body)
+new Response(body, options)
+//window.location.href.slice(64,500)
 }
