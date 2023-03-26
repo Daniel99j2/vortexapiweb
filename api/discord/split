@@ -1,7 +1,11 @@
-
-test
 <html>
 <body onload="load()">
+<p>
+{
+test: test,
+test2: test2
+}
+</p>
 </body>
 <script>
 function load() {
