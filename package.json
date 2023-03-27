@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "config": {
+    "url": "https://daniel99j.com"
+  },
+  "dependencies": {
+    "php": "8.2"
+  }
+}
