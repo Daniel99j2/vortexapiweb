@@ -137,7 +137,6 @@ function openWindows() {
 <py-script>
     # Import and use JS function and variable into Python
 from js import code, postRequest
-//code here
     import asyncio
     import json
     from request import request  # import our request function.
