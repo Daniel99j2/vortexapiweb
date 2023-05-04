@@ -18,7 +18,7 @@
 <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <py-config>
       [[fetch]]
-      files = ["https://twilight-wood-1574.on.fleek.co/request.py"]
+      files = ["/request.py"]
     </py-config>
     
     
