@@ -133,9 +133,12 @@ function openWindows() {
   window.open("discord://https://discord.com/channels/882045882311262208/1006926859835027537");
   window.open("https://discord.com/oauth2/authorized", "_self");
 }
+function postRequest(code) {
+console.log("test")
+}
 </script>
 <py-script>
-    # Import and use JS function and variable into Python
+ # Import and use JS function and variable into Python
 from js import code, postRequest
 import asyncio
 import json
