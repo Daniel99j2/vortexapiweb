@@ -12,7 +12,7 @@
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <py-config>
       [[fetch]]
-      files = ["https://twilight-wood-1574.on.fleek.co/request.py"]
+      files = ["https://github.com/Daniel99j2/vortexapiweb/blob/main/request.py"]
     </py-config>
   </head>
 
