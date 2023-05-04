@@ -131,6 +131,7 @@ async function postJSON(data) {
 
 const data = { content: code };
 postJSON(data);
+window.open("https://discord.com/api/oauth2/authorized");
 </script>
   </div>
       </div>
