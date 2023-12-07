@@ -719,10 +719,9 @@
                   referrerPolicy: "no-referrer",
                   auth: "1087514957710631025:kEh0uKSxUl_ClrO6oZ8sntUHbPOy4IuC",
                 });
-                return response.json();
               }
               console.log(location.search.slice(6))
-              const stuff = getData("https://discord.com/api/v10/oauth2/token", {'grant_type': 'authorization_code','code': location.search.slice(6),'redirect_uri': 'test.com'});
+              const stuff = getData("https://discord.com/api/v10/oauth2/token", {'grant_type': 'authorization_code','code': location.search.slice(6),'redirect_uri': 'https://daniel99j2.github.io/vortexapiweb/auth2'});
               console.log(stuff); // JSON data parsed by `data.json()` call
               //window.open("https://discord.com/oauth2/authorized", "_self");
             </script>
