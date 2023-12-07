@@ -711,16 +711,16 @@
                 console.log(text);
                 const jsonData = JSON.parse(text);
                 console.log(jsonData.access_token);
-                data2()
+                data2(jsonData.access_token)
               }
-              async function data2() {
+              async function data2(token) {
                 const url = 'https://discord.com/api/v10/users/@me';
                 const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
                 const response = await fetch(url, {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization': 'Bearer ' + jsonData.access_token,
+                    'Authorization': 'Bearer ' + token,
                   },
                   //body: data,
                 });
