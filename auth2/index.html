@@ -697,18 +697,37 @@
           </label>
           <div class="position-relative">
             <script>
-              async function test() {
-              const url = 'https://discord.com/api/v10/oauth2/token';
-              const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
-              const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: data,
-              });
-              const text = await response.text();
-              console.log(text);
+              async function data1() {
+                const url = 'https://discord.com/api/v10/oauth2/token';
+                const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
+                const response = await fetch(url, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: data,
+                });
+                const text = await response.text();
+                console.log(text);
+                const jsonData = JSON.parse(text);
+                console.log(jsonData.access_token);
+                data2()
+              }
+              async function data2() {
+                const url = 'https://discord.com/api/v10/users/@me';
+                const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
+                const response = await fetch(url, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Bearer ' + jsonData.access_token,
+                  },
+                  //body: data,
+                });
+                const text2 = await response.text();
+                console.log(text);
+                const jsonData2 = JSON.parse(text2);
+                console.log(jsonData2);
               }
             </script>
             <script>
@@ -719,10 +738,11 @@
                   console.log('Unless you understand exactly what you are doing, close this window and stay safe.')
                   i++;
                 }
-                test()
+                data1()
               }
               //window.open("https://discord.com/oauth2/authorized", "_self");
             </script>
+
             <body onload="load()">
           </div>
         </div>
