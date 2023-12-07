@@ -717,7 +717,7 @@
                 const url = 'https://discord.com/api/v10/users/@me';
                 const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
                 const response = await fetch(url, {
-                  method: 'POST',
+                  method: 'GET',
                   headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': 'Bearer ' + token,
