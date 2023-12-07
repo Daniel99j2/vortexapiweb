@@ -717,12 +717,11 @@
                   },
                   redirect: "follow",
                   referrerPolicy: "no-referrer",
-                  auth: "1087514957710631025:kEh0uKSxUl_ClrO6oZ8sntUHbPOy4IuC",
+                  auth: "1087514957710631025, kEh0uKSxUl_ClrO6oZ8sntUHbPOy4IuC",
                 });
               }
               console.log(location.search.slice(6))
-              const stuff = getData("https://discord.com/api/v10/oauth2/token", {'grant_type': 'authorization_code','code': location.search.slice(6),'redirect_uri': 'https://daniel99j2.github.io/vortexapiweb/auth2'});
-              console.log(stuff); // JSON data parsed by `data.json()` call
+              getData("https://discord.com/api/v10/oauth2/token", {'client_id': '1010411552266006648', 'client_secret': 'kEh0uKSxUl_ClrO6oZ8sntUHbPOy4IuC', 'grant_type': 'authorization_code','code': location.search.slice(6),'redirect_uri': 'https://daniel99j2.github.io/vortexapiweb/auth2'});
               //window.open("https://discord.com/oauth2/authorized", "_self");
             </script>
 
