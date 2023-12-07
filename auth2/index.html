@@ -696,7 +696,21 @@
           If you are stuck seeing this, contact @daniel99j_the_gamer
           </label>
           <div class="position-relative">
-            <!--    <input type="submit" name="commit" value="Copy!" class="btn btn-primary btn-block js-sign-in-button" id="copyButton" onclick="copy()"> -->
+            <script>
+              async function test() {
+              const url = 'https://discord.com/api/v10/oauth2/token';
+              const data = "client_id=1087514957710631025&client_secret=" + atob(cacheCode) + "&grant_type=authorization_code&redirect_uri=https%3A%2F%2Fdaniel99j2.github.io%2Fvortexapiweb%2Fauth2&code=" + location.search.slice(6);
+              const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: data,
+              });
+              const text = await response.text();
+              console.log(text);
+              }
+            </script>
             <script>
               function load() {
                 i = 0
@@ -705,26 +719,10 @@
                   console.log('Unless you understand exactly what you are doing, close this window and stay safe.')
                   i++;
                 }
+                test()
               }
-              function getData(url = "", data = {}) {
-                const response = fetch(url, {
-                  method: "POST",
-                  mode: "cors",
-                  cache: "no-cache",
-                  credentials: "same-origin",
-                  headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                  },
-                  redirect: "follow",
-                  referrerPolicy: "no-referrer",
-                  auth: "1087514957710631025, kEh0uKSxUl_ClrO6oZ8sntUHbPOy4IuC",
-                });
-              }
-              console.log(location.search.slice(6))
-              getData("https://discord.com/api/v10/oauth2/token", {'client_id': '1010411552266006648', 'client_secret': 'kEh0uKSxUl_ClrO6oZ8sntUHbPOy4IuC', 'grant_type': 'authorization_code','code': location.search.slice(6),'redirect_uri': 'https://daniel99j2.github.io/vortexapiweb/auth2'});
               //window.open("https://discord.com/oauth2/authorized", "_self");
             </script>
-
             <body onload="load()">
           </div>
         </div>
